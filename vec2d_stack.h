@@ -22,4 +22,4 @@ bool stack_pop(STACK_TYPE *stack_ptr, int *x, int *y);            // Removes the
 bool stack_is_empty(STACK_TYPE *stack_ptr);                       // Returns true if the stack is empty; used by stack_pop()
 bool stack_is_full(STACK_TYPE *stack_ptr);                        // Returns true if the stack is full; used by stack_push()
 bool stack_shrink(STACK_TYPE *stack_ptr);                         // Removes unused memory from the stack, shrinking it to fit
-unsigned int stack_size(STACK_TYPE *stack_ptr);                   // Returns the size of the stack, good for loops
+size_t stack_size(STACK_TYPE *stack_ptr);                   // Returns the size of the stack, good for loops

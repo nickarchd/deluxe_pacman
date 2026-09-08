@@ -62,7 +62,7 @@ bool loadmap(ALLEGRO_DISPLAY *display, LEVEL *level, char *levelname)
 
    // convert to lower case
    char lcname[4096] = "";
-   for(int i = 0; i < strlen(filename); i++) lcname[i] = tolower(filename[i]);
+   for(int i = 0; i < (int)strlen(filename); i++) lcname[i] = tolower(filename[i]);
 
    ALLEGRO_FILE *file = NULL;
 
@@ -193,7 +193,7 @@ bool savemap(ALLEGRO_DISPLAY *display, LEVEL *level, char *levelname)
 
    // convert to lower case
    char lcname[4096] = "";
-   for(int i = 0; i < strlen(filename); i++) lcname[i] = tolower(filename[i]);
+   for(int i = 0; i < (int)strlen(filename); i++) lcname[i] = tolower(filename[i]);
 
    ALLEGRO_FILE *file = NULL;
 

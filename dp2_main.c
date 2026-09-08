@@ -621,7 +621,7 @@ void init_display(bool reset_display)
    al_set_new_bitmap_flags(ALLEGRO_MAG_LINEAR); // | ALLEGRO_NO_PRESERVE_TEXTURE);
    //al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA);
 
-   al_set_new_display_option(ALLEGRO_SINGLE_BUFFER, 1, ALLEGRO_REQUIRE);
+   //al_set_new_display_option(ALLEGRO_SINGLE_BUFFER, 1, ALLEGRO_REQUIRE);
 
    // Allegro picks the desktop resolution automatically with ALLEGRO_FULLSCREEN_WINDOW flag set.
    setting.screen = al_create_display(WIDTH, HEIGHT);
@@ -1020,7 +1020,7 @@ void init_display(bool reset_display)
 /* Initialize:
  *    Initializes allegro + add-ons,
  */
-void initialize(void)
+static void initialize(void)
 {
    char s[TEXT_BUFFER] = "";
 
@@ -1080,6 +1080,7 @@ void initialize(void)
 
    /// ****** Initialize PHYSFS *******
    PHYSFS_init(NULL);
+   
    if(!PHYSFS_mount("Deluxe Pacman 2.pak", "/", 1)) {
       a5_error(AT, setting.screen, "PHSYFS_init() failed.");
       exit(1);
@@ -1104,7 +1105,7 @@ void initialize(void)
    init_display(false); // false = this isn't a reset
 
 #ifdef DEBUG
-   if(size_check != PAKSIZE) printf("Pakfile size has changed, new size is %I64d.\n", size_check);
+   if(size_check != PAKSIZE) printf("Pakfile size has changed, new size is %ld.\n", size_check);
 #endif // DEBUG
 
    /// ****** Create redraw_timer *******
@@ -1459,7 +1460,7 @@ void message(const char *text_message)
 
    al_draw_textf(font, al_map_rgba_f(0, 0, 0, .5),
                  WIDTH / 2 + 10, HEIGHT / 2 - textHeight + shadow, ALLEGRO_ALIGN_CENTRE,
-                 text_message);
+                 "%s", text_message);
    al_draw_textf(font, al_map_rgba_f(0, 0, 0, .5),
                  WIDTH / 2 + 10, HEIGHT / 2 + shadow, ALLEGRO_ALIGN_CENTRE,
                  "(click / press key)");
@@ -1472,7 +1473,7 @@ void message(const char *text_message)
 
    al_draw_textf(font, al_map_rgb_f(0, 1, 0),
                  WIDTH / 2, HEIGHT / 2 - textHeight, ALLEGRO_ALIGN_CENTRE,
-                 text_message);
+                 "%s", text_message);
    al_draw_textf(font, al_map_rgb_f(.5, 5, 5),
                  WIDTH / 2, HEIGHT / 2, ALLEGRO_ALIGN_CENTRE,
                  "(click / press key)");
@@ -1983,7 +1984,7 @@ int main_menu(int cplayer)
                   credits();
                   break;
                case WEBSITE: // WEBSITE
-                  system(DP2_WEBSITE);
+                  //system(DP2_WEBSITE);
                   break;
                case QUIT: // QUIT
                   menu_done = true;
@@ -2101,7 +2102,7 @@ int main_menu(int cplayer)
                   credits();
                   break;
                case WEBSITE: // WEBSITE
-                  system(DP2_WEBSITE);
+                  //system(DP2_WEBSITE);
                   break;
                case QUIT: // QUIT
                   menu_done = true;
@@ -2235,7 +2236,7 @@ int main_menu(int cplayer)
                   credits();
                   break;
                case WEBSITE: // WEBSITE
-                  system(DP2_WEBSITE);
+                  //system(DP2_WEBSITE);
                   break;
                case QUIT: // QUIT
                   menu_done = true;
@@ -4896,8 +4897,8 @@ int main(int argc, char *argv[])
 
                            // do ghost movement etc here
                            if(ghost[i].x % TILE_SIZE == 0 && ghost[i].y % TILE_SIZE == 0
-                                 && ghost[i].map.x >= 0 && ghost[i].map.x < MAPX
-                                 && ghost[i].map.y >= 0 && ghost[i].map.y < MAPY) {
+                                 && ghost[i].map.x > 0 && ghost[i].map.x < MAPX
+                                 && ghost[i].map.y > 0 && ghost[i].map.y < MAPY) {
 
                               int sd = setting.difficulty;
                               if(hack_detected) sd = 2;

@@ -1,5 +1,5 @@
 #pragma once
-#include <allegro5\allegro.h>
+#include <allegro5/allegro.h>
 #include "dp2_map.h"
 
 typedef struct GHOST {

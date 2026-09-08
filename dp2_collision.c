@@ -1,5 +1,7 @@
 #include "dp2_collision.h"
 
+#define abs fabs
+
 // Circular collision detection
 bool dp2_collision(PACMAN *p, GHOST *g, bool h)
 {

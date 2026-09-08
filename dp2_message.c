@@ -23,5 +23,5 @@ void dp2_message(ALLEGRO_FONT *font, ALLEGRO_COLOR colour, const char *message, 
    al_draw_filled_rounded_rectangle(x0 + 10, y0 + 10, x1 + 10, y1 + 10, 15, 15, al_map_rgba_f(0, 0, 0, .25));
    al_draw_filled_rounded_rectangle(x0, y0, x1, y1, 15, 15, al_map_rgba_f(0, 0, 0, .6));
    al_draw_rounded_rectangle(x0, y0, x1, y1, 15, 15, colour, 2);
-   al_draw_textf(font, colour, WIDTH / 2, HEIGHT / 2 - text_h / 2, ALLEGRO_ALIGN_CENTRE, buffer);
+   al_draw_textf(font, colour, WIDTH / 2, HEIGHT / 2 - text_h / 2, ALLEGRO_ALIGN_CENTRE, "%s",buffer);
 }

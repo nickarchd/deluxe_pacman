@@ -140,14 +140,14 @@ int dir(LEVEL *level, GHOST *ghost, MAP *dest, bool random_dir)
    // There are MAPX tiles horizontally (or for x) and MAPY vertically (or for y)
    // make certain we fall within those bounds
    // and adjust to the closest valid value if we fall outside of it.
-   if(dest->x < 0) dest->x = 0;
-   else if(dest->x >= MAPX) dest->x = MAPX - 1;
-   if(dest->y < 0) dest->y = 0;
-   else if(dest->y >= MAPY) dest->y = MAPY - 1;
+   if((int)dest->x <= 0) dest->x = 0;
+   else if((int)dest->x >= MAPX) dest->x = MAPX - 1;
+   if((int)dest->y <= 0) dest->y = 0;
+   else if((int)dest->y >= MAPY) dest->y = MAPY - 1;
 
-   if(g_start.x < 0) g_start.x = 0;
+   if(g_start.x <= 0) g_start.x = 0;
    else if(g_start.x >= MAPX) g_start.x = MAPX - 1;
-   if(g_start.y < 0) g_start.y = 0;
+   if(g_start.y <= 0) g_start.y = 0;
    else if(g_start.y >= MAPY) g_start.y = MAPY - 1;
 
 

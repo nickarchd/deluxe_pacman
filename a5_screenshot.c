@@ -7,7 +7,7 @@ bool a5_screenshot(const char *gamename)
 {
    time_t rawtime;
    struct tm *timeinfo;
-   char filename[80], timestr[80];
+   char filename[80], timestr[25];
    bool saved;
    ALLEGRO_STATE state;
 
@@ -18,8 +18,8 @@ bool a5_screenshot(const char *gamename)
    time(&rawtime);
    timeinfo = localtime(&rawtime);
 
-   strftime(timestr, 80, "%Y%m%d_%H%M%S", timeinfo);
-   snprintf(filename, 80, "%s_%s.png", gamename, timestr);
+   strftime(timestr, sizeof(timestr), "%Y%m%d_%H%M%S", timeinfo);
+   snprintf(filename, sizeof(filename), "%s_%s.png", gamename, timestr);
 
    saved = al_save_bitmap(filename, al_get_target_bitmap());
 

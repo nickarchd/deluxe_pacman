@@ -99,7 +99,7 @@ void clear_hiscores(int dif)
       al_ustr_assign_cstr(hiscore[dif][i].name, "empty");
       hiscore[dif][i].score = 0;
       hiscore[dif][i].level = 0;
-      snprintf(hiscore[dif][i].time, TIME_LEN, timestr);
+      snprintf(hiscore[dif][i].time, TIME_LEN, "%s",timestr);
    }
 }
 
