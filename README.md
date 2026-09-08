@@ -22,11 +22,39 @@ If you enjoy this game, please support and recognize the original creator, Neil 
 
 This is a fan-made, unofficial patch created to preserve and extend access to the original game. All rights to Pacman Deluxe belong to its original creator, Neil Roy. If the original author wishes for this patch to be taken down or modified, please reach out.
 
+## Dependencies
+
+To build this game on Linux, you will need the following libraries installed:
+
+- `allegro`
+- `allegro_image`
+- `allegro_font`
+- `allegro_ttf`
+- `physfs`
+- `allegro_physfs`
+- `allegro_acodec`
+- `allegro_audio`
+- `allegro_dialog`
+- `allegro_primitives`
+- `libm` (standard math library, usually included with your system's libc)
+
+## How to Build
+
+This project includes a `Makefile` to compile the game on Linux. Once you have the dependencies installed, simply run:
+
+```bash
+make
+```
+
+## How to Play
+Run this game it needs to be in the same folder with assets: 'Deluxe Pacman 2.pak'
+```bash
+cp deluxe_pacman ./bin
+cd ./bin
+./deluxe_pacman
+```
+
 
 ## License
 
 This patch is provided as-is, for compatibility purposes only. Please refer to the original game's license/terms for usage of the base game itself.
-
-
-## Links
-https://nitehackr.github.io/games_index.html
