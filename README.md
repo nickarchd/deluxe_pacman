@@ -22,6 +22,9 @@ If you enjoy this game, please support and recognize the original creator, Neil 
 
 This is a fan-made, unofficial patch created to preserve and extend access to the original game. All rights to Pacman Deluxe belong to its original creator, Neil Roy. If the original author wishes for this patch to be taken down or modified, please reach out.
 
+## Known Issues
+If you are seeing fuzzy sprites or weird pixels, it's a known problem with Nouveau drivers that I'm still researching a fix for. no issue using NVIDIA Driver
+
 ## Dependencies
 
 To build this game on Linux, you will need the following libraries installed:
@@ -53,7 +56,12 @@ cp deluxe_pacman ./bin
 cd ./bin
 ./deluxe_pacman
 ```
+Or
 
+```bash
+cp ./bin/Deluxe\ Pacman\ 2.pak .
+./deluxe_pacman
+```
 
 ## License
 
